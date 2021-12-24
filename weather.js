@@ -23,7 +23,8 @@
 
 function weatherJsonpCallback(data)
 {
-  const name = data.cities[9].citykey
+  console.log(data.cities[9].geoloc.city)
+  const name = data.cities[9].geoloc.city
   const { temp, condition } = data.cities[9].current[0]
   //const { condition } = data.cities[9].current[1]
  //console.log(data.cities[9].current[0].temp)
@@ -31,6 +32,8 @@ console.log(condition)
 console.log(data.cities[9].current[0])
 document.querySelector(".city").innerText = `Weather in ${name}`
 //document.querySelector(".city").innerText = "Weather in" + name;
+document.querySelector(".temp").innerText = `${temp}°F`
+document.querySelector(".condition").innerText = `${condition}`
 }
 
 var script = document.createElement('script');
