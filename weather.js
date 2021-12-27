@@ -38,37 +38,31 @@ document.querySelector(".condition").innerText = `${condition}`
  }
 
  //had a difficult time with the JSONP it was taking too much time to understand fully...i get all cities in console when click drop down, just not sure why they aren't displaying...I can't get functions inside the main function to work and not able to get the data outside the callback function
- let cities = data.cities
- for(let i = 0; i < cities.length; i++){
-   let city = cities[i]
-   document.getElementById('generate').onclick = function() {
-    const values = cities;
+ //const dropdown = document.getElementById("dropdown");
 
+    let cities = data.cities
+console.log(cities)
     const select = document.createElement("select");
     select.name = "cities";
-    select.id = "cities"
-    const option = document.createElement("option");
-    option.text = cities[i];
-    option.value = cities[i];
-    dropdown.add(option);
-    select.appendChild(option)
-    // for (const val of values)
-    // {
-    //     var option = document.createElement("option");
-    //     option.value = val;
-    //     option.text = val.geoloc.city
-    //     select.appendChild(option);
-    // }
+    select.id = "cities";
 
-    var label = document.createElement("label");
+    for (const val of cities)
+    {
+        var option = document.createElement("option");
+        option.value = val;
+        option.text = val.geoloc.city
+        select.appendChild(option);
+    }
+
+    const label = document.createElement("label");
     label.innerHTML = "Choose your city: "
     label.htmlFor = "cities";
 
     document.getElementById("menu").appendChild(label).appendChild(select);
-    }
+
     let time =  cities[i].hourly[i]
     let mode = document.getElementById("app");
-    console.log(time)
+
     for(let t of time){
         if(t.ampm === 'pm'){
           mode.classList.add("darkmode").remove("lightmode");
@@ -76,13 +70,13 @@ document.querySelector(".condition").innerText = `${condition}`
           mode.classList.remove("darkmode").add("lightmode");
         }
     }
- }
+
  //save data to local storage ....again having a hard time with the JSONP
  if(localStorage.getItem("dataCache")) {
   data = JSON.parse(localStorage.getItem("dataCache"));
-} else {
-   localStorage.setItem("dataCache", JSON.stringify(data))
-}
+  } else {
+    localStorage.setItem("dataCache", JSON.stringify(data))
+  }
 };
 
 
