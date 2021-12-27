@@ -5,33 +5,49 @@
 	<title>Part 1</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
-	<style>
-		html,
-		body {
-			margin:  0;
-			padding: 0px;
-			color: black;
-			background-color: white;
-			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-			font-size:   18px;
-			line-height: 1.36em;
-		}
-    </style>
+	<link rel="stylesheet" href="style.css" />
   <script src="./weather.js"></script>
+	<script src="https://restofworld.org/wp-content/projects/code/exercise/data/weather.js"></script>
 </head>
 <body>
-    <h1>Weather Report</h1>
+	<div id="app" class="lightmode"></div>
+	<main>
+	<!--The SELECT element.-->
+		<!-- <script>
+			fetch("https://restofworld.org/wp-content/projects/code/exercise/data/weather.js")
+				.then(res =>res.json())
+				.then(data =>{
+					console.log(data)
+				})
+		</script> -->
+	<container>
+		<div class="item-input-wrap">
+		<div class="input input-dropdown">
+		<select id="generate" name="locality">
+			<option value="PA">Palo Alto</option>
+		</select>
+		</div>
+		</div>
+	</container>
+
 	<div id="content">
-    <div id="current"></div>
-    <h2 class="city">Weather in NYC</h2>
+
+    <section id="current" class="current">
+    	<div class="city">Weather in NYC</div>
       <div class="temp">60°F</div>
       <div class="condition">Sunny</div>
+		</section>
     <hr>
-		<div id="forecast">
-      <h3 class="dailyForeCase_title">Seven Day Forecast</h3>
+		<section id="forecast">
+      <h3 class="dailyForeCast_title">Seven Day Forecast</h3>
 			<!-- Current weekly forecast for Palo Alto -->
-      <div id="dailyForcast_contents" class="dailyForcase_contents"></div>
-		</div>
+      <div id="dailyForecast_contents" class="dailyForecast_contents">
+			</div>
+		</section>
 	</div>
+</main>
 </body>
+
+
 </html>
+

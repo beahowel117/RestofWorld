@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #222;
+  font-size: 16px;
+  font-family:  "Josefin Sans", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #eaeaea;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+main {
+  width: 100%;
+  max-width: 700px;
+  max-height: 1050px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  color: #eaeaea;
+  background-color: #222;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+img {
+  display: block;
+}
+
+hr{
+  width: 90%;
+  margin: auto;
+  border: 1px solid #eaeaea;
+}
+
+h1 {
+  text-align: center;
+}
+
+.current {
+  width: 100%;
+  font-size: 1.1rem;
+  margin: auto auto 2rem;
+  display: grid;
+}
+
+.city {
+  display: flex;
+  justify-content: center;
+}
+
+.temp {
+  display: flex;
+  justify-content: center;
+  grid-row: 1 / span 3;
+  grid-column: 1 / span 2;
+  font-size: 6rem;
+  letter-spacing: 0;
+  position: relative;
+}
+
+/* #forecast {
+
+
+} */
+.dailyForeCast_title {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.dailyForecast_contents {
+  flex-grow: 1;
+  justify-content: space-evenly;
+  color: #eaeaea;
+  padding: 0.5rem 0;
+
+}
+
+container {
+  display: flex;
+  justify-content: center;
+}
+
+#generate {
+  border: none;
+  outline: none;
+  padding: .3rem;
+  border-radius: 5px;
+  background-color: #eaeaea;
+  color: black
+}
+
+.lightmode h1 {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: right;
+  color: black;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.lightmode {
+  font-family: "Josefin Sans", sans-serif;
+  border-style: solid;
+  border-radius: 30px;
+  border-color: #222;
+}
+
+.darkmode h1 {
+  font-family: "Josefin Sans", sans-serif;
+  text-align: right;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.darkmode {
+  font-family: "Josefin Sans", sans-serif;
+  border-style: solid;
+  border-radius: 30px;
+  border-color: #eaeaea;
+}
+
