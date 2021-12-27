@@ -37,30 +37,34 @@ document.querySelector(".condition").innerText = `${condition}`
   dayContainer.appendChild(nameElem)
  }
 
- //had a difficult time with the JSONP it was taking too much time to understand fully...i get all cities in console when click drop down, just not sure why they aren't displaying...I can't get functions inside the main function to work and not able to get the data outside the callback function 
+ //had a difficult time with the JSONP it was taking too much time to understand fully...i get all cities in console when click drop down, just not sure why they aren't displaying...I can't get functions inside the main function to work and not able to get the data outside the callback function
  let cities = data.cities
  for(let i = 0; i < cities.length; i++){
    let city = cities[i]
    document.getElementById('generate').onclick = function() {
-    var values = cities;
+    const values = cities;
 
-    var select = document.createElement("select");
+    const select = document.createElement("select");
     select.name = "cities";
     select.id = "cities"
-
-    for (const val of values)
-    {
-        var option = document.createElement("option");
-        option.value = val;
-        option.text = val.geoloc.city
-        select.appendChild(option);
-    }
+    const option = document.createElement("option");
+    option.text = cities[i];
+    option.value = cities[i];
+    dropdown.add(option);
+    select.appendChild(option)
+    // for (const val of values)
+    // {
+    //     var option = document.createElement("option");
+    //     option.value = val;
+    //     option.text = val.geoloc.city
+    //     select.appendChild(option);
+    // }
 
     var label = document.createElement("label");
     label.innerHTML = "Choose your city: "
     label.htmlFor = "cities";
 
-    document.getElementById("container").appendChild(label).appendChild(select);
+    document.getElementById("menu").appendChild(label).appendChild(select);
     }
     let time =  cities[i].hourly[i]
     let mode = document.getElementById("app");
@@ -73,7 +77,12 @@ document.querySelector(".condition").innerText = `${condition}`
         }
     }
  }
-
+ //save data to local storage ....again having a hard time with the JSONP
+ if(localStorage.getItem("dataCache")) {
+  data = JSON.parse(localStorage.getItem("dataCache"));
+} else {
+   localStorage.setItem("dataCache", JSON.stringify(data))
+}
 };
 
 
